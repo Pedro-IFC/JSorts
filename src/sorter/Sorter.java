@@ -6,12 +6,17 @@ public class Sorter<T extends Comparable<T>>{
     private Sorters selectionSort;
     private Sorters mergeSort;
     private Sorters quickSort;
+    private Sorters heapSort;
     public void initializeSorters() {
         bubbleSort = new BubbleSort();
         insertionSort = new InsertionSort();
         selectionSort = new SelectionSort();
         mergeSort = new MergeSort();
         quickSort = new QuickSort();
+        heapSort = new HeapSort();
+    }
+    public void heapsort(T[] array){
+    	heapSort.sort(array);
     }
     public void bubblesort(T[] array){
     	bubbleSort.sort(array);
