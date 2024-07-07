@@ -1,21 +1,21 @@
 package sorter;
 
 
-class BubbleSort extends Sorters {
+public class BubbleSort extends Sorters {
     public <T extends Comparable<T>> void sort(T[] array) {
         int n = array.length;
-        boolean swapped;
+        boolean trocado;
         do {
-            swapped = false;
+        	trocado = false;
             for (int i = 1; i < n; i++) {
                 if (array[i - 1].compareTo(array[i]) > 0) {
-                    T temp = array[i - 1];
+                    T aux = array[i - 1];
                     array[i - 1] = array[i];
-                    array[i] = temp;
-                    swapped = true;
+                    array[i] = aux;
+                    trocado = true;
                 }
             }
             n--;
-        } while (swapped);
+        } while (trocado);
     }
 }

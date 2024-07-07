@@ -1,6 +1,6 @@
 package sorter;
 
-class InsertionSort extends Sorters {
+public class InsertionSort extends Sorters {
     public <T extends Comparable<T>> void sort(T[] array) {
         int n = array.length;
         for (int i = 1; i < n; i++) {

@@ -1,7 +1,6 @@
 package sorter;
 
-class QuickSort extends Sorters {
-    @Override
+public class QuickSort extends Sorters {
     public <T extends Comparable<T>> void sort(T[] array) {
         quickSort(array, 0, array.length - 1);
     }
