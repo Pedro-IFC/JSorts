@@ -1,11 +1,17 @@
 package tester;
+
 import java.util.Arrays;
 import java.util.Random;
-public class MergeSort {
 
+public class MergeSort {
+    
+    private static int comparisons = 0;
+    private static int swaps = 0;
 
     // Função principal para ordenar usando o MergeSort e contar comparações e trocas
     public static void mergeSort(int[] arr) {
+        comparisons = 0;
+        swaps = 0;
         int[] temp = new int[arr.length];
         mergeSort(arr, temp, 0, arr.length - 1);
     }
@@ -29,15 +35,13 @@ public class MergeSort {
         int right = rightStart;
         int index = leftStart;
 
-        int comparisons = 0;
-        int swaps = 0;
-
         while (left <= leftEnd && right <= rightEnd) {
             comparisons++;
             if (arr[left] <= arr[right]) {
                 temp[index++] = arr[left++];
             } else {
                 temp[index++] = arr[right++];
+                swaps++;
             }
         }
 
@@ -86,9 +90,8 @@ public class MergeSort {
         System.out.println("Tipo de Array: " + getType(arr));
         System.out.println("Tamanho do Array: " + arr.length);
         System.out.println("Tempo gasto (ms): " + duration);
-        // Pode imprimir comparações e trocas se necessário
-        // System.out.println("Número de comparações: " + comparisons);
-        // System.out.println("Número de trocas: " + swaps);
+        System.out.println("Número de comparações: " + comparisons);
+        System.out.println("Número de trocas: " + swaps);
         System.out.println();
     }
 
