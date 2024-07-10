@@ -1,31 +1,31 @@
 package sorter;
 
-public class HeapSort extends Sorters {
-    public <T extends Comparable<T>> void sort(T[] array) {
+public class HeapSort implements Sorters {
+    public void sort(long[] array) {
         int n = array.length;
         for (int i = n / 2 - 1; i >= 0; i--) {
             heapify(array, n, i);
         }
         for (int i = n - 1; i > 0; i--) {
-            T temp = array[0];
+            long temp = array[0];
             array[0] = array[i];
             array[i] = temp;
             heapify(array, i, 0);
         }
     }
 
-    private <T extends Comparable<T>> void heapify(T[] array, int n, int i) {
+    private void heapify(long[] array, int n, int i) {
         int largest = i;
         int left = 2 * i + 1;
         int right = 2 * i + 2;
-        if (left < n && array[left].compareTo(array[largest]) > 0) {
+        if (left < n && array[left] > array[largest]) {
             largest = left;
         }
-        if (right < n && array[right].compareTo(array[largest]) > 0) {
+        if (right < n && array[right] > array[largest]) {
             largest = right;
         }
         if (largest != i) {
-            T swap = array[i];
+            long swap = array[i];
             array[i] = array[largest];
             array[largest] = swap;
             heapify(array, n, largest);

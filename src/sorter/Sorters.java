@@ -1,5 +1,5 @@
 package sorter;
 
-public abstract class Sorters {
-    public abstract <T extends Comparable<T>> void sort(T[] array);
+public interface Sorters {
+    public void sort(long[] array);
 }
